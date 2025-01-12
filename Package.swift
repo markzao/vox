@@ -4,23 +4,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "Whisp",
+    name: "vox",
     platforms: [
         .iOS(.v14),
         .macOS(.v10_15)
     ],
     products: [
         .library(
-            name: "WhispAgent",
-            targets: ["WhispAgent"]
+            name: "voxAgent",
+            targets: ["voxAgent"]
         ),
         .library(
-            name: "Whisp",
-            targets: ["Whisp"]
+            name: "vox",
+            targets: ["vox"]
         ),
         .executable(
-            name: "WhispDemo",
-            targets: ["WhispDemo"]
+            name: "voxDemo",
+            targets: ["voxDemo"]
         ),
     ],
     dependencies: [
@@ -35,15 +35,15 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "WhispAgent",
+            name: "voxAgent",
             dependencies: [
                 .product(name: "Starscream", package: "Starscream")
             ]
         ),
         .target(
-            name: "Whisp",
+            name: "vox",
             dependencies: [
-                "WhispAgent",
+                "voxAgent",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
             ],
             resources: [
@@ -54,8 +54,8 @@ let package = Package(
             ]
         ),
         .executableTarget(
-            name: "WhispDemo",
-            dependencies: ["WhispAgent"]
+            name: "voxDemo",
+            dependencies: ["voxAgent"]
         )
     ]
 )
